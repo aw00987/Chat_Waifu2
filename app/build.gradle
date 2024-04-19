@@ -4,10 +4,10 @@ plugins {
 import com.android.build.OutputFile
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def storePath = properties.getProperty('keyStorePath')
-def alias = properties.getProperty('keyAlias')
-def storePwd = properties.getProperty('keyStorePwd')
-def aliasPwd = properties.getProperty('keyAliasPwd')
+//def storePath = properties.getProperty('keyStorePath')
+//def alias = properties.getProperty('keyAlias')
+//def storePwd = properties.getProperty('keyStorePwd')
+//def aliasPwd = properties.getProperty('keyAliasPwd')
 def enableSeparateBuildPerCPUArchitecture = true
 def applicationName = "chat"
 def reactNativeArchitectures() {
@@ -15,20 +15,20 @@ def reactNativeArchitectures() {
     return value ? value.split(",") : ["armeabi-v7a", "x86", "x86_64", "arm64-v8a"]
 }
 android {
-    signingConfigs {
-        release {
-            storeFile file(storePath)
-            keyAlias alias
-            storePassword storePwd
-            keyPassword aliasPwd
-        }
-        debug {
-            storeFile file(storePath)
-            keyAlias alias
-            storePassword storePwd
-            keyPassword aliasPwd
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile file(storePath)
+//            keyAlias alias
+//            storePassword storePwd
+//            keyPassword aliasPwd
+//        }
+//        debug {
+//            storeFile file(storePath)
+//            keyAlias alias
+//            storePassword storePwd
+//            keyPassword aliasPwd
+//        }
+//    }
     namespace 'com.chat'
     compileSdk 33
     defaultConfig {
@@ -51,7 +51,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             multiDexEnabled true
         }
     }
